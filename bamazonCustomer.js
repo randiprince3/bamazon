@@ -73,17 +73,16 @@ function goShopping() {
 
             type: "input",
             name: "inputId",
-            message: "Please enter the ID number of the item you would like to purchase.",
+            message: "Enter the ID number of the item you would like to purchase.",
         },
         {
             type: "input",
             name: "inputNumber",
-            message: "How many units of this item would you like to purchase?",
+            message: "How many would you like to purchase?",
 
         }
     ]).then(function(answer) {
 
-        //connect to database to find stock_quantity in database. If user quantity input is greater than stock, decline purchase.
 
         connection.query("SELECT * FROM products WHERE item_id=?", answer.inputId, function(err, res) {
             for (var i = 0; i < res.length; i++) {
@@ -96,7 +95,7 @@ function goShopping() {
                     startPrompt();
 
                 } else {
-                    //list item information for user for confirm prompt
+                
                     console.log("You've selected:");
                     console.log("----------------");
                     console.log("Item: " + res[i].product_name);
