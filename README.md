@@ -1,13 +1,13 @@
 # Bamazon
 
 ## Overview 
-This is a command line application created to mimic and Amazon-like storefront for our week 12 coding bootcamp homework using MySQL, node.js, and inquirer.
+This is a command line application created to mimic and Amazon-like storefront for a coding bootcamp assignment using MySQL, node.js, and inquirer.
 
 ## To use this application:
-    - Clone this repository to your computer
-    - Move into the bamazon folder in Terminal
-    - Run the npm install commnad in terminal
-    - Use `node bamazoncustomer.js` to begin using the application and going through the prompted questions
+    1. Clone this repository to your computer
+    2. Move into the bamazon folder in Terminal
+    3. Run the npm install command in Terminal to install dependencies
+    4. Use `node bamazoncustomer.js` to begin using the application and going through the prompted questions
 
 ## Screenshots of functionality 
 
