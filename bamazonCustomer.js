@@ -2,6 +2,8 @@ var mysql = require("mysql");
 var inquirer = require("inquirer");
 var Table = require('cli-table');
 
+var currentQuantity = "";
+var currentProduct = "";
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -30,7 +32,7 @@ function startPrompt() {
         if (user.confirm === true) {
             options();
         } else {
-            console.log("Thank you! Come back soon!");
+            console.log("No worries. Come back soon!");
         }
     });
 }
@@ -39,7 +41,7 @@ function options() {
 
     var table = new Table({
         head: ['ID', 'Item', 'Department', 'Price', 'Stock'],
-        colWidths: [10, 30, 30, 30, 30]
+        colWidths: [10, 23, 23, 23, 23]
     });
 
     listOptions();
@@ -103,13 +105,26 @@ function goShopping() {
                     console.log("Price: " + res[i].price);
                     console.log("Quantity: " + answer.inputNumber);
                     console.log("----------------");
-                    console.log("Total: " + res[i].price * answer.inputNumber);
-                   startPrompt();
+                    console.log("Your total is: $" + res[i].price * answer.inputNumber);
+
+                    currentQuantity = (res[i].stock_quantity) - (answer.inputNumber);
+                    currentProduct = res[i].product_name;
+                    const query = connection.query("UPDATE products SET ? WHERE ?", [{
+                            stock_quantity: currentQuantity
+                        },
+                        {
+                            product_name: currentProduct
+                        }
+                    ])
+                    startPrompt();
                 }
             }
         });
     });
-}
+    
+    }
+
+
 
 
  

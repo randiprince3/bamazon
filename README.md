@@ -13,6 +13,6 @@ This is a command line application created to mimic and Amazon-like storefront f
 
 <img src="https://github.com/randiprince3/bamazon/blob/master/images/Bamzon_InStock.png?raw=true" width="75%" height="75%">
 
-<img src="https://github.com/randiprince3/bamazon/blob/master/images/Bamazon_OutOfStock.png?raw=true" width="75%" height="75%">
+
 
 
